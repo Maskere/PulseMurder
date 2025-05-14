@@ -1,0 +1,12 @@
+C:\Users\Mus\Programmering\3SemesterEksamen\PulseMurdererV3\PulseMurdererV3\bin\Debug\net8.0\PulseMurdererV3.deps.json
+C:\Users\Mus\Programmering\3SemesterEksamen\PulseMurdererV3\PulseMurdererV3\bin\Debug\net8.0\PulseMurdererV3.dll
+C:\Users\Mus\Programmering\3SemesterEksamen\PulseMurdererV3\PulseMurdererV3\bin\Debug\net8.0\PulseMurdererV3.pdb
+C:\Users\Mus\Programmering\3SemesterEksamen\PulseMurdererV3\PulseMurdererV3\obj\Debug\net8.0\PulseMurdererV3.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Mus\Programmering\3SemesterEksamen\PulseMurdererV3\PulseMurdererV3\obj\Debug\net8.0\PulseMurdererV3.AssemblyInfoInputs.cache
+C:\Users\Mus\Programmering\3SemesterEksamen\PulseMurdererV3\PulseMurdererV3\obj\Debug\net8.0\PulseMurdererV3.AssemblyInfo.cs
+C:\Users\Mus\Programmering\3SemesterEksamen\PulseMurdererV3\PulseMurdererV3\obj\Debug\net8.0\PulseMurdererV3.csproj.CoreCompileInputs.cache
+C:\Users\Mus\Programmering\3SemesterEksamen\PulseMurdererV3\PulseMurdererV3\obj\Debug\net8.0\PulseMurdererV3.sourcelink.json
+C:\Users\Mus\Programmering\3SemesterEksamen\PulseMurdererV3\PulseMurdererV3\obj\Debug\net8.0\PulseMurdererV3.dll
+C:\Users\Mus\Programmering\3SemesterEksamen\PulseMurdererV3\PulseMurdererV3\obj\Debug\net8.0\refint\PulseMurdererV3.dll
+C:\Users\Mus\Programmering\3SemesterEksamen\PulseMurdererV3\PulseMurdererV3\obj\Debug\net8.0\PulseMurdererV3.pdb
+C:\Users\Mus\Programmering\3SemesterEksamen\PulseMurdererV3\PulseMurdererV3\obj\Debug\net8.0\ref\PulseMurdererV3.dll
