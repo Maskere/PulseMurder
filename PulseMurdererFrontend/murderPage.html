@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-crosshair"
+    viewBox="0 0 16 16">
+</svg>
+<html lang="en">
+
+<head>
+    </svg>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link href="style.css" rel="stylesheet">
+    <title>Player</title>
+</head>
+
+<body style="background-color: rgb(223, 220, 219); color: black;">
+    <div id="app" class="">
+        <div>
+            <img src="/img/bloodTL.png" class="splatter top-left" />
+            <img src="/img/bloodTR.png" class="splatter top-right" />
+            <img src="/img/bloodBL.png" class="splatter bottom-left" />
+            <img src="/img/bloodBR.png" class="splatter bottom-right" />
+        </div>
+
+        <div class="content container mt-4">
+            <h1 class="text-center">Player Name</h1>
+
+            <img src="/img/avatar.png" alt="Avatar" class="rounded-circle mx-auto d-block"
+                style="width: 150px; height: 150px;">
+            <h2 class="text-center">You are Murderer</h2>
+            <img src="/img/purple-evil.png" alt="Angel" class="rounded-circle mx-auto d-block"
+                style="width: 70px; height: 70px;">
+
+            <h3 class="text-center mb-4">Who Dies? <br> Pick Your Target:</h2>
+                <div v-for="player in Players" :key="player.id" class="list-group mt-2">
+                    <button id="voterButton" :class="!player.clicked ? 'chosenButton' : 'voteButton'" class="btn p-2"
+                        @click="vote(player.id)">
+                        {{ player.name }}
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-crosshair" viewBox="0 0 16 16">
+                            <path
+                                d="M8.5.5a.5.5 0 0 0-1 0v.518A7 7 0 0 0 1.018 7.5H.5a.5.5 0 0 0 0 1h.518A7 7 0 0 0 7.5 14.982v.518a.5.5 0 0 0 1 0v-.518A7 7 0 0 0 14.982 8.5h.518a.5.5 0 0 0 0-1h-.518A7 7 0 0 0 8.5 1.018zm-6.48 7A6 6 0 0 1 7.5 2.02v.48a.5.5 0 0 0 1 0v-.48a6 6 0 0 1 5.48 5.48h-.48a.5.5 0 0 0 0 1h.48a6 6 0 0 1-5.48 5.48v-.48a.5.5 0 0 0-1 0v.48A6 6 0 0 1 2.02 8.5h.48a.5.5 0 0 0 0-1zM8 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4" />
+                        </svg>
+                    </button>
+                </div>
+                <button id="nextRoundBtn" class="btn mb-10 mt-4" align="center" @click="nextRound">Goto Next
+                    Round</button>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+
+</html>

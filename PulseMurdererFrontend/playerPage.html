@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-hand-thumbs-down" viewBox="0 0 16 16">
+</svg>
+<html lang="en">
+    <h1>Welcome, <span id="playerName"></span></h1>
+    <p>Role: <span id="role"></span></p>
+    <p>Status: <span id="status"></span></p>
+
+    <!-- Vote UI -->
+    <div id="voteSection">
+        <label for="voteTarget">Vote for:</label>
+        <select id="voteTarget"></select>
+        <button onclick="submitVote()">Vote</button>
+    </div>
+
+    <!-- Murderer Kill UI -->
+    <div id="killSection" style="display:none;">
+        <label for="killTarget">Kill:</label>
+        <select id="killTarget"></select>
+        <button onclick="submitKill()">Kill</button>
+    </div>
+
+    <script src="playerLogic.js"></script>
+
+    <head>
+        </svg>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script> 
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <link href="style.css" rel="stylesheet">
+        <title>Player</title>
+    </head>
+</html>

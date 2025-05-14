@@ -1,0 +1,56 @@
+.player-page {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background: white;
+    overflow: hidden;
+}
+
+.splatter {
+    position: absolute;
+   /* width: 15vw;*/
+    max-width: 300px;
+    z-index: 1;
+    pointer-events: none;
+    /* So they don’t block clicks */
+}
+
+.top-left {
+    top: 0;
+    left: 0;
+}
+
+.top-right {
+    top: 0;
+    right: 0;
+}
+
+.bottom-left {
+    bottom: 0;
+    left: 0;
+}
+
+.bottom-right {
+    bottom: 0;
+    right: 0;
+}
+
+.content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    /*padding: 2rem;*/
+}
+
+.voteButton {    
+    background-color: #610404;
+    color: white;
+}
+.chosenButton {
+    background-color: #408c37;
+    color: white;
+}
+#nextRoundBtn {
+    background-color: #254caf;
+    color: white;
+}

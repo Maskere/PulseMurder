@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Player Session Demo</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    .hidden { display: none; }
+    .player-card { border: 1px solid #ccc; padding: 10px; border-radius: 6px; width: 250px; margin: 0 auto; }
+    .status { margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <h2>Welcome to the Game</h2>
+  <div id="playerInfo" class="player-card hidden">
+    <p><strong>Name:</strong> <span id="playerName"></span></p>
+    <p><strong>ID:</strong> <span id="playerId"></span></p>
+    <p><strong>Status:</strong> <span id="playerStatus"></span></p>
+    <div class="status">
+      <label for="voteInput">Vote for Player ID:</label>
+      <input type="number" id="voteInput" min="1" />
+      <button onclick="submitVote()">Vote</button>
+    </div>
+  </div>
+
+  <script>
+    let playerId = localStorage.getItem("playerId");
+
+    // Try to get ID from URL if not in storage
+    if (!playerId) {
+      const urlParams = new URLSearchParams(window.location.search);
+      playerId = urlParams.get("id");
+      if (playerId) {
+        localStorage.setItem("playerId", playerId);
+      }
+    }
+
+    if (!playerId) {
+      document.body.innerHTML = "<h3>Error: No player ID provided. Please join using a valid player link.</h3>";
+    } else {
+      fetch(`http://localhost:5235/api/players/${playerId}`)
+        .then(res => {
+          if (!res.ok) throw new Error("Player not found");
+          return res.json();
+        })
+        .then(player => {
+          document.getElementById("playerName").textContent = player.name;
+          document.getElementById("playerId").textContent = player.id;
+          document.getElementById("playerStatus").textContent = player.isAlive ? "Alive" : "Dead";
+          document.getElementById("playerInfo").classList.remove("hidden");
+        })
+        .catch(err => {
+          document.body.innerHTML = `<h3>Error: ${err.message}</h3>`;
+        });
+    }
+
+    function submitVote() {
+      const voteTargetId = document.getElementById("voteInput").value;
+      if (!voteTargetId) return alert("Enter a valid player ID to vote for.");
+
+      fetch(`http://localhost:5235/api/players/${playerId}/vote`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ targetId: parseInt(voteTargetId) })
+      })
+        .then(res => res.text())
+        .then(msg => alert(msg))
+        .catch(err => alert("Vote failed: " + err.message));
+    }
+  </script>
+</body>
+</html>
+
