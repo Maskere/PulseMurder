@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="stylesheet" href="./Styles/style.css">
+    <link rel="icon" href="/Assets/logo.png" type="image/x-icon">
+    <title>Result</title>
+</head>
+<body class="fullscreen-center">
+    <div id="app" class="d-flex flex-column justify-content-center align-items-center">
+        <div>
+            <img src="/Assets/bloodTL.png" alt="Blood Splatter top left corner" class="splatter top-left">
+            <img src="/Assets/bloodTR.png" alt="Blood Splatter top right corner" class="splatter top-right">
+            <img src="/Assets/bloodBL.png" alt="Blood Splatter bottom left corner" class="splatter bottom-left">
+            <img src="/Assets/bloodBR.png" alt="Blood Splatter top right corner" class="splatter bottom-right">
+        </div>
+        <!-- Murderer wins -->
+        <div v-if="result && result.includes('Murderer')">
+            <h1 class="text-danger mt-5 pt-5">The Murderer Wins!</h1>
+            <div style="display: flex; justify-content: center; flex-wrap: wrap;">
+                <div v-for="player in Players" :key="player.id">
+                    <div v-if="player.isMurderer">
+                        <img src="/Assets/avatar.png" alt="Avatar" class="rounded-circle mx-auto d-block"
+                            style="width: 150px; height: 150px;">
+                        <h2>{{ player.name }} <img src="/Assets/purple-evil.png" class="rounded-circle"
+                                style="width: 50px; height: 50px;"></h2>
+                    </div>
+                </div>
+            </div>
+            <h3 class="mt-5">Civilians:</h3>
+            <div class="row justify-content-center">
+                <template v-for="player in Players" :key="player.id">
+                    <div v-if="!player.isMurderer" class="col-2 text-center mb-3">
+                        <img src="/Assets/avatar.png" alt="Avatar" class="rounded-circle"
+                            style="width: 50px; height: 50px;">
+                        <div>{{ player.name }}</div>
+                    </div>
+                </template>
+            </div>
+        </div>
+        <!-- Civilians win -->
+        <div v-if="result && result.includes('Civilians')">
+                <h1 class="text-success mt-5 pt-5">The Civilians Win!</h1>
+            <h3 class="mt-5">Civilians:</h3>
+            <div class="row justify-content-center">
+                <template v-for="player in Players" :key="player.id">
+                    <div v-if="!player.isMurderer && player.isAlive" class="col-auto text-center mb-4">
+                        <img src="/Assets/avatar.png" alt="Avatar" class="rounded-circle"
+                            style="width: 60px; height: 60px;">
+                        <div class="mt-2">{{ player.name }}</div>
+                    </div>
+                </template>
+            </div>
+            <h3 class="mt-5 text-danger">Killer Busted</h3>
+            <div class="d-flex justify-content-center">
+                <template v-for="player in Players" :key="player.id">
+                    <div v-if="player.isMurderer" class="text-center">
+                        <img src="/Assets/avatar.png" alt="Avatar" class="rounded-circle mx-auto d-block"
+                            style="width: 150px; height: 150px;">
+                        <h4 class="mt-3">
+                            {{ player.name }}
+                            <img src="/Assets/purple-evil.png" class="rounded-circle" style="width: 40px; height: 40px;">
+                        </h4>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div>
+    <script src="./Scripts/index.js"></script>
+</body>
+</html>

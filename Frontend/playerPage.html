@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <link rel="stylesheet" href="./Styles/style.css">
+        <link rel="icon" href="/Assets/logo.png" type="image/x-icon">
+        <title>Welcome</title>
+    </head>
+    <body class="fullscreen-center">
+        <h2>Welcome to the Game</h2>
+        <div>
+            <img src="/Assets/bloodTL.png" alt="Blood Splatter top left corner" class="splatter top-left">
+            <img src="/Assets/bloodTR.png" alt="Blood Splatter top right corner" class="splatter top-right">
+            <img src="/Assets/bloodBL.png" alt="Blood Splatter bottom left corner" class="splatter bottom-left">
+            <img src="/Assets/bloodBR.png" alt="Blood Splatter top right corner" class="splatter bottom-right">
+        </div>
+        <div class="d-flex flex-column justify-content-center align-items-center">
+            <div id="playerInfo" class="player-card hidden">
+                <p><strong>Name:</strong> <span id="playerName"></span></p>
+                <p hidden><strong>ID:</strong> <span id="playerId"></span></p>
+                <p><strong>Status:</strong> <span id="playerStatus"></span></p>
+                <div>
+                    <div>
+                        <p id="roleInfo"></p>
+                        <p>Status: <span id="status"></span></p>
+                    </div>
+                    <div id="voteSection">
+                        <label for="voteTarget">Vote for a player:</label>
+                        <select id="voteTarget"></select>
+                        <button id="voteButton">Vote</button>
+                    </div>
+                    <div id="killSection" style="display:none;">
+                        <label for="killTarget">Kill a player:</label>
+                        <select id="killTarget"></select>
+                        <button id="killButton">Kill</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="./Scripts/playerPage.js"></script>
+    </body>
+</html>

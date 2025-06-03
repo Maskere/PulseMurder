@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <link rel="stylesheet" href="/Styles/style.css">
+        <link rel="icon" href="/Assets/logo.png" type="image/x-icon">
+        <title>Start Game</title>
+    </head>
+    <body class="fullscreen-center">
+        <div id="app">
+            <section>
+                <div class="d-flex flex-column justify-content-center align-items-center">
+                    <div>
+                        <img src="/Assets/bloodTL.png" alt="Blood Splatter top left corner" class="splatter top-left">
+                        <img src="/Assets/bloodTR.png" alt="Blood Splatter top right corner" class="splatter top-right">
+                        <img src="/Assets/bloodBL.png" alt="Blood Splatter bottom left corner" class="splatter bottom-left">
+                        <img src="/Assets/bloodBR.png" alt="Blood Splatter bottom right corner" class="splatter bottom-right">
+                    </div>
+                    <div v-if="!qrCodeUrl" style="align-items: center; margin-top: 25%; margin-bottom:auto;">
+                        <button id="qrBtn" class="btn p-4" @click="getQR" style="">
+                            <img src="/Assets/buttonBackgroundV2.png" alt="Blood Splatter center" class="">
+                            <!-- Generate QR Code -->
+                        </button>
+                    </div>
+
+                    <div v-if="qrCodeUrl" class="mt-5">
+                        <h2>Scan to join</h2>
+                        <h2>Pulse Murderer!</h2>
+                        <img :src="qrCodeUrl" id="qrCodeImage" alt="QR Code">
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div class="d-flex flex-column justify-content-center align-items-center ">
+                    <div class="content container mt-4">
+                        <h2 class="text-center">Waiting for players...</h2>
+                        <div class="d-flex flex-wrap justify-content-center">
+                            <div v-for="player in Players" :key="player.id" class="text-center m-3">
+                                <div>
+                                    <img src="/Assets/avatar.png" alt="Avatar" class="rounded-circle"
+                                        style="width: 50px; height: 50px;">
+                                    <p>{{ player.name }} 
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-success mb-4" @click="startGame">Start Game</button>
+                        <!-- <button class="btn btn-danger mb-4 ml-2" @click="resetMurder">Reset</button> -->
+                    </div>
+                </div>
+            </section>
+        </div>
+        <script src="./Scripts/index.js"></script>
+    </body>
+</html>

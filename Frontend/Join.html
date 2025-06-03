@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="stylesheet" href="./Styles/style.css">
+    <link rel="icon" href="/Assets/logo.png" type="image/x-icon">
+    <title>Join game</title>
+</head>
+<body class="fullscreen-center">
+    <div id="app" class="container">
+        <div>
+            <img src="/Assets/bloodTL.png" alt="Blood Splatter top left corner" class="splatter top-left">
+            <img src="/Assets/bloodTR.png" alt="Blood Splatter top right corner" class="splatter top-right">
+            <img src="/Assets/bloodBL.png" alt="Blood Splatter bottom left corner" class="splatter bottom-left">
+            <img src="/Assets/bloodBR.png" alt="Blood Splatter top right corner" class="splatter bottom-right">
+        </div>
+
+        <div class="d-flex flex-column justify-content-center align-items-center">
+            <h1 class="">Join Game</h1>
+            <p class="mt-2">Enter name:</p>
+            <input v-model="newPlayer.Name" id="myName" placeholder="Insert Name Here"></input><br>
+            <button class="btn btn-primary mt-2" id="button" @click="joinGame">Join Game</button>
+        </div>
+    </div>
+    <script src="./Scripts/Join.js"></script>
+</body>
+</html>

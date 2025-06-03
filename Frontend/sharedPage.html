@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <link rel="stylesheet" href="./Styles/style.css">
+        <link rel="icon" href="/Assets/logo.png" type="image/x-icon">
+        <title>Pulse Murderer</title>
+    </head>
+    <body class="fullscreen-center">
+        <div>
+            <img src="/Assets/bloodTL.png" alt="Blood Splatter top left corner" class="splatter top-left">
+            <img src="/Assets/bloodTR.png" alt="Blood Splatter top right corner" class="splatter top-right">
+            <img src="/Assets/bloodBL.png" alt="Blood Splatter bottom left corner" class="splatter bottom-left">
+            <img src="/Assets/bloodBR.png" alt="Blood Splatter top right corner" class="splatter bottom-right">
+        </div>
+        <div class="content container mt-4">
+            <div id="app">
+                <h1>Pulse Murderer - Game Page</h1>
+                <br>
+                <h3 class="text-danger mb-5">Who killed Peter?</h3>
+                <h4>Round {{roundCount}}</h4>
+                <h5>Voting starts in:</h5>
+                <div id="countdown" class="text-center mt-4" style="font-size: 24px; font-weight: bold;">
+                    <!-- 00:30 -->
+                </div>
+                <br>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Player status</th>
+                            <th>Pulse</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="player in Players" :key="player.id" :class="{'dead': !player.isAlive}">
+                            <td>
+                                <img src="/Assets/avatar.png" alt="Avatar" class="rounded-circle"
+                                    style="width: 50px; height: 50px;"><br>
+                                {{ player.name }}
+                            </td>
+                            <td :class="{'dead': !player.isAlive}">
+                                {{ player.isAlive ? 'Alive 🟢' : 'Dead 💀' }}
+                            </td>
+                            <td>
+                                <div id="data">Connecting...</div>
+
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <script src="./Scripts/index.js"></script>
+    </body>
+</html>
